@@ -190,3 +190,48 @@
 .products .container .box .detail h4 {
   color: #0989ff;
 }
+.banner {
+  padding: 20px 30px;
+  width: 100%;
+}
+.banner .container {
+  padding: 30px 40px;
+  display: flex;
+  background: #0989ff;
+  border-radius: 10px;
+  justify-content: space-between;
+}
+.banner .container .detail {
+  margin-top: 10%;
+  margin-left: 20px;
+}
+.banner .container .detail h4 {
+  color: #e2e0e0;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+.banner .container .detail h3 {
+  color: #fff;
+  font-size: 42px;
+  letter-spacing: 1px;
+  margin-right: 20%;
+}
+.banner .container .detail p {
+  margin-top: 20px;
+  font-size: 20px;
+  color: #e2e3ec;
+  margin-bottom: 30px;
+}
+.banner .container .detail .link {
+  padding: 20px 30px;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 5px;
+  color: #010f1c;
+  background: #fff;
+  transition: 0.3s;
+}
+.banner .container .detail .link:hover {
+  color: #e3e4f6;
+  background: #010f1c;
+}
