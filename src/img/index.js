@@ -12,3 +12,8 @@ export { default as tp5 } from './tp5.jpg'
 export { default as tp6 } from './tp6.png'
 export { default as tp7 } from './tp7.jpg'
 export { default as tp8 } from './tp8.jpg'
+export { default as p9 } from './p9.jpg'
+export { default as p10 } from './p10.jpg'
+export { default as p11 } from './p11.jpg'
+export { default as p12 } from './p12.jpg'
+

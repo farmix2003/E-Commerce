@@ -1,0 +1,119 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+.product {
+  padding: 30px 40px;
+  width: 100%;
+}
+.product h2 {
+  font-size: 42px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 300;
+  color: #010f1c;
+}
+.product p {
+  margin-top: 10px;
+  color: #a9a9a9;
+}
+.product .container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+.product .container .filter {
+  padding: 20px 30px;
+}
+.product .container .filter .categories h3 {
+  color: #010f1c;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.product .container .filter .categories ul {
+  margin-top: 10px;
+}
+.product .container .filter .categories ul li {
+  list-style: none;
+  margin-top: 20px;
+  color: #010f1c;
+  cursor: pointer;
+}
+.product .container .productbox {
+  margin-top: 20px;
+}
+.product .container .productbox .content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  row-gap: 1rem;
+}
+
+.product .container .productbox .content .box {
+  padding: 10px 20px;
+  overflow: hidden;
+  width: 300px;
+  height: 375px;
+  border: 1px solid #e2e0e0;
+  transition: 0.3s ease-in;
+  border-radius: 3%;
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+.product .container .productbox .content .box:hover {
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px,
+    rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
+}
+.product .container .productbox .content .box .img_box {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #e2e0e0;
+  margin-bottom: 0.7rem;
+}
+.product .container .productbox .content .box .icons {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  right: -30px;
+  font-size: 18px;
+  margin-top: 15px;
+  transition: 0.5s;
+}
+.product .productbox .content .box:hover .icons {
+  right: 50px;
+}
+.product .productbox .content .box .icons li {
+  list-style: none;
+  padding: 10px 10px;
+  color: #010f1c;
+  cursor: pointer;
+  box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em,
+    rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+  background: #fff;
+  transition: 0.5s;
+}
+.product .productbox .content .box .icons li:hover {
+  color: #fff;
+  background-color: #0989ff;
+}
+.product .productbox .content .box .detail p {
+  color: #9a9a9a;
+  font-size: 14px;
+}
+.product .productbox .content .box .detail h3 {
+  font-size: 16px;
+  margin-top: 5px;
+  color: #3f3f29;
+  transition: 0.5s;
+}
+.product .productbox .content .box:hover .detail h3 {
+  color: #0989ff;
+}
+.product .productbox .content .box .detail h4 {
+  color: #0989ff;
+}
