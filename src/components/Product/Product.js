@@ -1,10 +1,9 @@
-import React, { useState } from 'react'
 import Productdetails from '../ProductDetails'
-import { AiOutlineHeart, AiOutlineShoppingCart } from 'react-icons/ai'
+import { AiOutlineCloseCircle, AiOutlineHeart, AiOutlineShoppingCart } from 'react-icons/ai'
 import { BsEye } from 'react-icons/bs'
 import './Product.css'
-const Product = () => {
-    const [product, setProduct] = useState(Productdetails)
+const Product = ({ product, setProduct, detail, view, close, setClose }) => {
+
     const filterProduct = (product) => {
         const update = Productdetails.filter(x => (
             x.Cat === product
@@ -16,6 +15,29 @@ const Product = () => {
     }
     return (
         <>
+            {
+                close ?
+                    <div className='product_detail'>
+                        <div className='container'>
+                            <button onClick={() => setClose(false)} className='closeBtn'><AiOutlineCloseCircle /></button>
+                            {detail.map((item) => (
+                                <div className='productbox'>
+                                    <div className='product_img'>
+                                        <img src={item.Img} alt={item.Title} />
+                                    </div>
+                                    <div className='detail'>
+                                        <h4>{item.Cat}</h4>
+                                        <h2>{item.Title}</h2>
+                                        <p>A Screen Everyone Will Love: Whether Your Family is streaming or video chatting with friends tablet AB</p>
+                                        <h3>{item.Price}</h3>
+                                        <button>Add To Cart</button>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div> : null
+            }
+
             <div className='product'>
                 <h2># Product</h2>
                 <p>Home - products</p>
@@ -42,7 +64,7 @@ const Product = () => {
                                         <img src={item.Img} alt={item.Title} />
                                         <div className='icons'>
                                             <li><AiOutlineShoppingCart /></li>
-                                            <li><BsEye /></li>
+                                            <li onClick={() => view(item)}><BsEye /></li>
                                             <li><AiOutlineHeart /></li>
                                         </div>
                                     </div>

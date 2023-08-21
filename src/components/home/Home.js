@@ -3,14 +3,37 @@ import { BsArrowRight, BsCurrencyDollar, BsEye } from 'react-icons/bs'
 import { FiTruck } from 'react-icons/fi'
 import { CiPercent } from 'react-icons/ci'
 import { TfiHeadphoneAlt } from 'react-icons/tfi'
-import { AiOutlineHeart, AiOutlineShoppingCart } from 'react-icons/ai'
+import { AiOutlineCloseCircle, AiOutlineHeart, AiOutlineShoppingCart } from 'react-icons/ai'
 import { Headphone, cpuHeat, mobilePhone, slider, smartWatch } from '../../img'
 import './home.css'
 
 import Homeproducts from '../../HomeProducts'
-const Home = () => {
+const Home = ({ detail, view, close, setClose }) => {
     return (
         <>
+            {
+                close ?
+                    <div className='product_detail'>
+                        <div className='container'>
+                            <button onClick={() => setClose(false)} className='closeBtn'><AiOutlineCloseCircle /></button>
+                            {detail.map((item) => (
+                                <div className='productbox'>
+                                    <div className='product_img'>
+                                        <img src={item.Img} alt={item.Title} />
+                                    </div>
+                                    <div className='detail'>
+                                        <h4>{item.Cat}</h4>
+                                        <h2>{item.Title}</h2>
+                                        <p>A Screen Everyone Will Love: Whether Your Family is streaming or video chatting with friends tablet AB</p>
+                                        <h3>{item.Price}</h3>
+                                        <button>Add To Cart</button>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div> : null
+            }
+
             <div className='top_banner'>
                 <div className='container'>
                     <div className='detail'>
@@ -108,7 +131,7 @@ const Home = () => {
                                 <img src={item.Img} alt={item.Title} />
                                 <div className='icons'>
                                     <li><AiOutlineShoppingCart /></li>
-                                    <li><BsEye /></li>
+                                    <li onClick={() => view(item)}><BsEye /></li>
                                     <li><AiOutlineHeart /></li>
                                 </div>
                             </div>

@@ -39,6 +39,7 @@
   border: 3px solid #0989ff;
   outline: none;
   color: #010f1c;
+  text-transform: capitalize;
 }
 .main_header .container .search_box button {
   outline: none;
