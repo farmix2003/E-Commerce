@@ -2,8 +2,9 @@ import Productdetails from '../ProductDetails'
 import { AiOutlineCloseCircle, AiOutlineHeart, AiOutlineShoppingCart } from 'react-icons/ai'
 import { BsEye } from 'react-icons/bs'
 import './Product.css'
-const Product = ({ product, setProduct, detail, view, close, setClose }) => {
-
+import { useAuth0 } from "@auth0/auth0-react";
+const Product = ({ product, setProduct, detail, view, close, setClose, addToCart }) => {
+    const { loginWithRedirect, isAuthenticated } = useAuth0();
     const filterProduct = (product) => {
         const update = Productdetails.filter(x => (
             x.Cat === product
@@ -30,7 +31,7 @@ const Product = ({ product, setProduct, detail, view, close, setClose }) => {
                                         <h2>{item.Title}</h2>
                                         <p>A Screen Everyone Will Love: Whether Your Family is streaming or video chatting with friends tablet AB</p>
                                         <h3>{item.Price}</h3>
-                                        <button>Add To Cart</button>
+                                        <button onClick={() => addToCart(item)}>Add To Cart</button>
                                     </div>
                                 </div>
                             ))}
@@ -63,7 +64,12 @@ const Product = ({ product, setProduct, detail, view, close, setClose }) => {
                                     <div className='img_box'>
                                         <img src={item.Img} alt={item.Title} />
                                         <div className='icons'>
-                                            <li><AiOutlineShoppingCart /></li>
+                                            {
+                                                isAuthenticated ?
+                                                    <li onClick={() => addToCart(item)}><AiOutlineShoppingCart /></li>
+                                                    :
+                                                    <li onClick={() => loginWithRedirect()}><AiOutlineShoppingCart /></li>
+                                            }
                                             <li onClick={() => view(item)}><BsEye /></li>
                                             <li><AiOutlineHeart /></li>
                                         </div>

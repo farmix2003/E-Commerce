@@ -6,9 +6,10 @@ import { TfiHeadphoneAlt } from 'react-icons/tfi'
 import { AiOutlineCloseCircle, AiOutlineHeart, AiOutlineShoppingCart } from 'react-icons/ai'
 import { Headphone, cpuHeat, mobilePhone, slider, smartWatch } from '../../img'
 import './home.css'
-
+import { useAuth0 } from "@auth0/auth0-react";
 import Homeproducts from '../../HomeProducts'
-const Home = ({ detail, view, close, setClose }) => {
+const Home = ({ detail, view, close, setClose, addToCart }) => {
+    const { loginWithRedirect, isAuthenticated } = useAuth0();
     return (
         <>
             {
@@ -130,7 +131,13 @@ const Home = ({ detail, view, close, setClose }) => {
                             <div className='img_box'>
                                 <img src={item.Img} alt={item.Title} />
                                 <div className='icons'>
-                                    <li><AiOutlineShoppingCart /></li>
+                                    {
+                                        isAuthenticated ?
+                                            <li onClick={() => addToCart(item)}><AiOutlineShoppingCart /></li>
+                                            :
+                                            <li onClick={() => loginWithRedirect()}><AiOutlineShoppingCart /></li>
+
+                                    }
                                     <li onClick={() => view(item)}><BsEye /></li>
                                     <li><AiOutlineHeart /></li>
                                 </div>
